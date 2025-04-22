@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+   <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: black;
+      color: white;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 15px 20px;
+    }
+   h2{
+            font-size: 36px;
+            color: #ff5722;
+            margin: 20px 0;
+        }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav h1 {
+      color: white;
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #ffc107;
+      font-weight: bold;
+      position: relative;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0%;
+      height: 3px;
+      background-color: red;
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    .about-section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .about-section h2 {
+      color: #ff5722;
+      font-size: 2em;
+    }
+
+    .video-box {
+      max-width: 800px;
+      margin: 20px auto;
+    }
+
+    .video-box video {
+      width: 100%;
+      border: 2px solid #ff5722;
+      border-radius: 10px;
+    }
+
+    .image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .image-gallery img {
+      width: 250px;
+      height: auto;
+      border-radius: 10px;
+      border: 2px solid #ff5722;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                url('https://i.pinimg.com/736x/17/5a/31/175a31f4e24810b3c6f31024fe70c78c.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      color: #ff5722;
+      font-size: 2em;
+    }
+
+    .contact-section div {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 15px;
+      margin: 10px auto;
+      max-width: 600px;
+      font-size: 1.2em;
+      border-radius: 8px;
+    }
+
+    .contact-section i {
+      color: red;
+      margin-right: 10px;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <h1><i>Italian Oven</i></h1>
+      <ul>
+        <li><a href="HOME.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="booktable.html">Book Table</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="about-section">
+    <h2>About Italian Oven</h2>
+  
+    <p>Welcome to Italian oven, where delicious flavors meet a cozy ambiance!<br> We serve the best pizzas, burgers, and combos that will leave you craving for more.</p>
+    <h2>Our Services</h2>
+    <div class="video-box">
+      <video autoplay muted loop controls>
+        <source src="D:\uid project\videos\video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+      <h2>Our Categories</h2>
+
+    <div class="image-gallery">
+      <img src="https://i.pinimg.com/474x/c3/15/f2/c315f238994440a1342f971546a2ce71.jpg" alt="Pizza">
+      <img src="https://i.pinimg.com/474x/ac/4d/72/ac4d72a310f5b0c6ea00a446192181cb.jpg" alt="Burger">
+      <img src="https://i.pinimg.com/736x/1e/64/4b/1e644bca1fd1dd2a8b25266cc557db07.jpg" alt="fries">
+      <img src="https://i.pinimg.com/474x/ee/f5/03/eef503197b14bf4b682d184d883c65f9.jpg" alt="poppers">
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <h2>Contact & Location</h2>
+
+    <div>Address: 123 Foodie Street, Near Central Mall, Mumbai, India</div>
+    <div>Opening Hours: 10:00 AM – 11:00 PM (Mon-Sun)</div>
+    <div>Support Hours: 9:00 AM – 9:00 PM</div>
+    <div>Parking: Available for 2 & 4 wheelers</div>
+    <div>Phone: +91 98765 43210</div>
+    <div>Email: <a href="mailto:info@italianoven.com" style="color:#ff9800;">info@italianoven.com</a></div>
+
+  </section>
+
+</body>
+</html>

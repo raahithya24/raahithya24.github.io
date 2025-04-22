@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book a Table</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+              url('https://i.pinimg.com/736x/46/21/80/462180aeeae7c5275634707dde441eae.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 15px 20px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav h1 {
+      color: white;
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #ffc107;
+      font-weight: bold;
+      position: relative;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0%;
+      height: 3px;
+      background-color: red;
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: 60px auto;
+      padding: 30px;
+      background: black;
+      border-radius: 15px;
+      border: 2px solid red;
+    }
+
+    .form-container h2 {
+      color: white;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #ffc107;
+      margin-bottom: 5px;
+    }
+
+    input, select {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #555;
+      font-size: 1em;
+      background: #222;
+      color: white;
+    }
+
+    .btn {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1em;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      background-color: darkred;
+    }
+
+    @media (max-width: 768px) {
+      .form-container {
+        margin: 30px 20px;
+        padding: 20px;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1><i>Italian Oven</i></h1>
+      <ul>
+        <li><a href="HOME.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="booktable.html">Book Table</a></li>
+        <li><a href="Details.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="form-container">
+    <h2>Reserve your Table</h2>
+    <form id="bookingForm">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" placeholder="Your Name" />
+
+      <label for="date">Enter Date</label>
+      <input type="date" id="date" />
+
+      <label for="time">Enter Time </label>
+      <input type="time" id="time" />
+
+      <label for="people">Number of People</label>
+      <select id="people">
+        <option value="">Select Number of People</option>
+        <option value="1">1 Person</option>
+        <option value="2">2 People</option>
+        <option value="3">3 People</option>
+        <option value="4+">4 or more</option>
+      </select>
+
+      <label for="phone">Contact Number</label>
+      <input type="tel" id="phone" placeholder="Contact Number" />
+
+      <button type="submit" class="btn">Book Now</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const date = document.getElementById('date').value;
+      const time = document.getElementById('time').value;
+      const people = document.getElementById('people').value;
+      const phone = document.getElementById('phone').value.trim();
+
+      // Time validation: 10:00 to 23:59
+      if (!name || !date || !time || !people || !phone) {
+        alert("Please fill out all fields.");
+        return;
+      }
+
+      const [hour, minute] = time.split(":").map(Number);
+      if (hour < 10 || hour > 23 || (hour === 0 && minute > 0)) {
+        alert("Italian Oven accepts bookings only between 10:00 AM and 12:00 AM.");
+        return;
+      }
+
+      if (!/^\d{10}$/.test(phone)) {
+        alert("Please enter a valid 10-digit phone number.");
+        return;
+      }
+
+      alert("Thank you! Your table booking is confirmed.");
+      this.reset();
+    });
+  </script>
+</body>
+</html>
